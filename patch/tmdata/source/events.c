@@ -1110,6 +1110,7 @@ static EventDesc Ledgestall = {
 
 // L-Cancel Training
 // Match Data
+/*
 static EventMatchData TechCounterFalcoGang_MatchData = {
     .timer = MATCH_TIMER_COUNTUP,
     .matchType = MATCH_MATCHTYPE_TIME,
@@ -1140,7 +1141,7 @@ static EventMatchData TechCounterFalcoGang_MatchData = {
     .onMatchEnd = 0,
 };
 // Event Struct
-static EventDesc TechCounterFalcoGang = {
+ static EventDesc TechCounterFalcoGang = {
     .eventName = "Ledgetech Marth Counter (FalcoGang)\n",
     .eventDescription = "Practice ledge-teching\nMarth's counter!\n",
     .eventTutorial = "TvLC",
@@ -1154,7 +1155,7 @@ static EventDesc TechCounterFalcoGang = {
     .matchData = &TechCounterFalcoGang_MatchData,
     .defaultOSD = 0xFFFFFFFF,
 };
-
+ */
 ///////////////////////
 /// Page Defintions ///
 ///////////////////////
@@ -1208,7 +1209,7 @@ static EventPage Spacie_Page = {
     (sizeof(Spacie_Events) / 4) - 1,
     Spacie_Events,
 };
-
+/*
 // Page 4 Events
 static EventDesc *Falco_Gang_Events[] = {
     &TechCounterFalcoGang,
@@ -1217,7 +1218,7 @@ static EventPage Falco_Gang_Page = {
     .name = "Falco Gang",
     (sizeof(Falco_Gang_Page) / 4) - 1,
     Falco_Gang_Events,
-};
+}; */
 
 //////////////////
 /// Page Order ///
@@ -1227,7 +1228,7 @@ static EventPage **EventPages[] = {
     &Minigames_Page,
     &General_Page,
     &Spacie_Page,
-    &Falco_Gang_Page,
+    // &Falco_Gang_Page,
 };
 
 ////////////////////////
