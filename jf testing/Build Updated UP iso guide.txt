@@ -1,0 +1,9 @@
+1.) download GCR over here: https://www.romhacking.net/utilities/619/, then use it to open up an existing ISO of UP training mode. make sure it's the most recent version
+2.) right click on the "root" directory in the right pane of GCR, export it somewhere
+3.) clone the UPTM repository and make your changes
+4.) run the .bat script in "Build TM Codeset"
+5.) take everything in the Additional Files directory and put it into the unpacked ISO. Shouldn't need Start.dol cuz we're using a TM iso already. 
+6.) inside the patch directory, run the build.bat for each folder you made changes in, copy the .dat files of each output folder to the "TM" folder in the unpacked ISO
+7.) using GCR, rebuild an ISO from the unpacked ISO directory (Root -> Open, Root -> Save, Rebuild) 
+i've only done this two times so i'm hoping i got everything right here lol
+for testing, i just changed the title of an event. haven't really done anything beyond that right now

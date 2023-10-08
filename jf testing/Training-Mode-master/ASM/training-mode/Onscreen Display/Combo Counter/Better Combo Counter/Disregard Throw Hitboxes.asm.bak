@@ -1,0 +1,45 @@
+#To be inserted at 80078950
+.include "../../../Globals.s"
+.include "../../../../m-ex/Header.s"
+
+#Original Line
+lwz	r7, 0x002C (r30)
+
+#Check if this is a Pummel
+lwz	r3,0x10(r7)
+cmpwi	r3,0xD9
+beq	Exit
+
+#Allow for Cliff Attacks
+cmpwi	r3,0x100
+beq	Exit
+cmpwi	r3,0x101
+beq	Exit
+
+#Check If Attacker Is Grabbable (Attacker is Set Grabbable When the Throw Releases the Victim)
+lhz	r3,0x1A6A(r7)		#Grabbable Flag
+cmpwi	r3,0x0
+bne	SkipComboIncrement
+
+#Check If Attacker Is Throwing, Allow Combo Inc
+lwz	r3,0x10(r7)
+cmpwi	r3,0xDB
+blt	SkipThrowCheck
+cmpwi	r3,0xDE
+bgt	SkipThrowCheck
+b	Exit
+SkipThrowCheck:
+
+#Check If Same Move ID as Last Hit
+#lwz	r3,0x2C(r31)
+#lhz	r3,0x18EC(r3)		#Last Move Instance Victim Was Hit By
+#lhz	r4,0x2088(r7)		#Attacking Player's Current Move Instance
+#cmpw	r3,r4
+#beq	SkipComboIncrement
+
+b	Exit
+
+SkipComboIncrement:
+branch	r12,0x8007897c
+
+Exit:
