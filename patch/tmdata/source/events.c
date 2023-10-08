@@ -1210,7 +1210,7 @@ static EventPage Spacie_Page = {
 };
 
 // Page 4 Events
-static EventDesc *Spacie_Events[] = {
+static EventDesc *Falco_Gang_Events[] = {
     &TechCounterFalcoGang,
 };
 static EventPage Falco_Gang_Page = {
@@ -1262,7 +1262,7 @@ static TipMgr stc_tipmgr;
 void EventInit(int page, int eventID, MatchInit *matchData)
 {
 
-    /* 
+    /*
     This function runs when leaving the main menu/css and handles
     setting up the match information, such as rules, players, stage.
     All of this data comes from the EventDesc in events.c
@@ -1271,7 +1271,7 @@ void EventInit(int page, int eventID, MatchInit *matchData)
     // get event pointer
     EventDesc *event = GetEventDesc(page, eventID);
 
-    //Init default match info
+    // Init default match info
     matchData->timer_unk2 = 0;
     matchData->unk2 = 1;
     matchData->unk7 = 1;
@@ -1281,7 +1281,7 @@ void EventInit(int page, int eventID, MatchInit *matchData)
     matchData->itemFreq = MATCH_ITEMFREQ_OFF;
     matchData->onStartMelee = EventLoad;
 
-    //Copy event's match info struct
+    // Copy event's match info struct
     EventMatchData *eventMatchData = event->matchData;
     matchData->timer = eventMatchData->timer;
     matchData->matchType = eventMatchData->matchType;
@@ -1419,7 +1419,7 @@ void EventInit(int page, int eventID, MatchInit *matchData)
     // Update match struct with this stage
     matchData->stage = stage;
 
-    //Update preload table? (801bb63c)
+    // Update preload table? (801bb63c)
 
     return;
 };
@@ -1550,8 +1550,8 @@ void TM_ConsoleThink(GOBJ *gobj)
     }
 
     // clear text
-    //DevelopText_EraseAllText(text);
-    //DevelopMode_ResetCursorXY(text, 0, 0);
+    // DevelopText_EraseAllText(text);
+    // DevelopMode_ResetCursorXY(text, 0, 0);
 }
 void TM_CreateConsole()
 {
@@ -2538,7 +2538,7 @@ void Message_Init()
     COBJ *cam_cobj = COBJ_LoadDescSetScissor(cam_desc);
     cam_cobj->scissor_bottom = 400;
     // init camera
-    GObj_AddObject(cam_gobj, R13_U8(-0x3E55), cam_cobj); //R13_U8(-0x3E55)
+    GObj_AddObject(cam_gobj, R13_U8(-0x3E55), cam_cobj); // R13_U8(-0x3E55)
     GOBJ_InitCamera(cam_gobj, Message_CObjThink, MSG_COBJLGXPRI);
     cam_gobj->cobj_links = MSG_COBJLGXLINKS;
 
@@ -3214,7 +3214,7 @@ GOBJ *EventMenu_Init(EventDesc *event_desc, EventMenu *start_menu)
 void EventMenu_Update(GOBJ *gobj)
 {
 
-    //MenuCamData *camData = gobj->userdata;
+    // MenuCamData *camData = gobj->userdata;
     MenuData *menuData = gobj->userdata;
     EventDesc *event_desc = menuData->event_desc;
     EventMenu *currMenu = menuData->currMenu;
@@ -3363,7 +3363,7 @@ void EventMenu_MenuThink(GOBJ *gobj, EventMenu *currMenu)
     u8 pauser = menuData->controller_index;
     // get their  inputs
     HSD_Pad *pad = PadGet(pauser, PADGET_MASTER);
-    int inputs_rapid = Pad_GetRapidHeld(pauser); //pad->rapidFire;
+    int inputs_rapid = Pad_GetRapidHeld(pauser); // pad->rapidFire;
     int inputs_held = pad->held;
     int inputs = inputs_rapid;
     if ((inputs_held & HSD_TRIGGER_R) != 0)
@@ -3875,9 +3875,9 @@ void EventMenu_CreateModel(GOBJ *gobj, EventMenu *menu)
         JOBJ_SetFlags(jobj_border, JOBJ_HIDDEN);
         DOBJ_SetFlags(jobj_border->dobj, DOBJ_HIDDEN);
         jobj_border->dobj->next->mobj->mat->alpha = 0.6;
-        //GXColor border_color = ROWBOX_COLOR;
-        //jobj_border->dobj->next->mobj->mat->diffuse = border_color;
-        // store pointer
+        // GXColor border_color = ROWBOX_COLOR;
+        // jobj_border->dobj->next->mobj->mat->diffuse = border_color;
+        //  store pointer
         menuData->row_joints[i][0] = jobj_border;
 
         // create an arrow jobj
@@ -3892,8 +3892,8 @@ void EventMenu_CreateModel(GOBJ *gobj, EventMenu *menu)
         jobj_arrow->scale.Y = TICKBOX_SCALE;
         jobj_arrow->scale.Z = TICKBOX_SCALE;
         // change color
-        //GXColor gx_color = {30, 40, 50, 255};
-        //jobj_arrow->dobj->next->mobj->mat->diffuse = gx_color;
+        // GXColor gx_color = {30, 40, 50, 255};
+        // jobj_arrow->dobj->next->mobj->mat->diffuse = gx_color;
 
         JOBJ_SetFlags(jobj_arrow, JOBJ_HIDDEN);
         // store pointer
@@ -4180,7 +4180,7 @@ void EventMenu_UpdateText(GOBJ *gobj, EventMenu *menu)
         Text_AddSubtext(text, 0, y_delta, msg_line);
     }
 
-    /* 
+    /*
     Update Names
     */
 
@@ -4214,7 +4214,7 @@ void EventMenu_UpdateText(GOBJ *gobj, EventMenu *menu)
         Text_SetColor(text, i, &color);
     }
 
-    /* 
+    /*
     Update Values
     */
 
@@ -4256,7 +4256,7 @@ void EventMenu_UpdateText(GOBJ *gobj, EventMenu *menu)
             Text_SetText(text, i, &nullString);
 
             // show arrow
-            //JOBJ_ClearFlags(menuData->row_joints[i][1], JOBJ_HIDDEN);
+            // JOBJ_ClearFlags(menuData->row_joints[i][1], JOBJ_HIDDEN);
         }
 
         // output color
@@ -4341,7 +4341,7 @@ void EventMenu_DestroyMenu(GOBJ *gobj)
 
     // remove jobj
     GObj_FreeObject(gobj);
-    //GObj_DestroyGXLink(gobj);
+    // GObj_DestroyGXLink(gobj);
 
     return;
 }
