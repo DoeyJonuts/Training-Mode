@@ -1202,6 +1202,7 @@ static EventDesc *Spacie_Events[] = {
     &ArmadaShine,
     &SideBSweet,
     &EscapeSheik,
+    &TechCounterFalcoGang,
 };
 static EventPage Spacie_Page = {
     .name = "Spacie Tech",
@@ -1210,14 +1211,14 @@ static EventPage Spacie_Page = {
 };
 
 // Page 4 Events
-static EventDesc *Falco_Gang_Events[] = {
-    &TechCounterFalcoGang,
-};
-static EventPage Falco_Gang_Page = {
-    .name = "Falco Gang",
-    (sizeof(Falco_Gang_Page) / 4) - 1,
-    Falco_Gang_Events,
-};
+// static EventDesc *Falco_Gang_Events[] = {
+//     &TechCounterFalcoGang,
+// };
+// static EventPage Falco_Gang_Page = {
+//     .name = "Falco Gang",
+//     (sizeof(Falco_Gang_Page) / 4) - 1,
+//     Falco_Gang_Events,
+// };
 
 //////////////////
 /// Page Order ///
@@ -1227,7 +1228,7 @@ static EventPage **EventPages[] = {
     &Minigames_Page,
     &General_Page,
     &Spacie_Page,
-    &Falco_Gang_Page,
+    // &Falco_Gang_Page,
 };
 
 ////////////////////////
