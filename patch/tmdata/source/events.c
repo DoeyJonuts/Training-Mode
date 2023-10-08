@@ -1141,8 +1141,8 @@ static EventMatchData TechCounterFalcoGang_MatchData = {
 };
 // Event Struct
 static EventDesc TechCounterFalcoGang = {
-    .eventName = "Ledgetech Marth Counter (FalcoGang)\n",
-    .eventDescription = "Practice ledge-teching\nMarth's counter!\n",
+    .eventName = "How to beat Ossify\n",
+    .eventDescription = "Good luck, this guy is a RAT\nHe sniffs like THIS\n",
     .eventTutorial = "TvLC",
     .eventFile = 0,
     .isChooseCPU = false,

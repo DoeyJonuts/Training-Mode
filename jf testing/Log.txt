@@ -3,3 +3,5 @@ patch>lab>source>lab.c void Record_MemcardLoad (line 5097)
 void Record_MemcardLoad(int slot, int file_no); (header line)
 
 - Left off trying to hard-code a savestate into the Import Savestate code so that when you go into training lab and click import, it automatically opens a specific savestate without having to choose it. Then need to skip the CSS and have that savestate load just by selecting an event from the event list
+
+- Also, making just a change to the naming of an event crashes the game when it opens
