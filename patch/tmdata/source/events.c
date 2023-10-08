@@ -1108,6 +1108,53 @@ static EventDesc Ledgestall = {
     .defaultOSD = 0xFFFFFFFF,
 };
 
+// L-Cancel Training
+// Match Data
+static EventMatchData TechCounterFalcoGang_MatchData = {
+    .timer = MATCH_TIMER_COUNTUP,
+    .matchType = MATCH_MATCHTYPE_TIME,
+    .isDisableMusic = true,
+    .hideGo = true,
+    .hideReady = true,
+    .isCreateHUD = true,
+    .isDisablePause = false,
+    // byte 0x3
+    .timerRunOnPause = false,   // 0x01
+    .isHidePauseHUD = true,     // 0x02
+    .isShowLRAStart = true,     // 0x04
+    .isCheckForLRAStart = true, // 0x08
+    .isShowZRetry = true,       // 0x10
+    .isCheckForZRetry = true,   // 0x20
+    .isShowAnalogStick = true,  // 0x40
+    .isShowScore = false,       // 0x80
+
+    .isRunStockLogic = false, // 0x20
+    .isDisableHit = false,    // 0x20
+    .useKOCounter = false,
+    .playerKind = -1,
+    .cpuKind = 9,         // 0xFF=
+    .stage = -1,          // 0xFFFF
+    .timerSeconds = 0,    // 0xFFFFFFFF
+    .timerSubSeconds = 0, // 0xFF
+    .onCheckPause = 0,
+    .onMatchEnd = 0,
+};
+// Event Struct
+static EventDesc TechCounterFalcoGang = {
+    .eventName = "Ledgetech Marth Counter (FalcoGang)\n",
+    .eventDescription = "Practice ledge-teching\nMarth's counter!\n",
+    .eventTutorial = "TvLC",
+    .eventFile = 0,
+    .isChooseCPU = false,
+    .isSelectStage = true,
+    .use_savestates = false,
+    .disable_hazards = true,
+    .scoreType = 0,
+    .callbackPriority = 3,
+    .matchData = &TechCounterFalcoGang_MatchData,
+    .defaultOSD = 0xFFFFFFFF,
+};
+
 ///////////////////////
 /// Page Defintions ///
 ///////////////////////
@@ -1162,6 +1209,16 @@ static EventPage Spacie_Page = {
     Spacie_Events,
 };
 
+// Page 4 Events
+static EventDesc *Spacie_Events[] = {
+    &TechCounterFalcoGang,
+};
+static EventPage Falco_Gang_Page = {
+    .name = "Falco Gang",
+    (sizeof(Falco_Gang_Page) / 4) - 1,
+    Falco_Gang_Events,
+};
+
 //////////////////
 /// Page Order ///
 //////////////////
@@ -1170,6 +1227,7 @@ static EventPage **EventPages[] = {
     &Minigames_Page,
     &General_Page,
     &Spacie_Page,
+    &Falco_Gang_Page,
 };
 
 ////////////////////////
